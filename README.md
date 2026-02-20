@@ -1,9 +1,9 @@
-# Sky1 Gentoo overlay
+# CIX Sky1 Gentoo overlay
 
-This overlay offers ebuilds for CIX Sky1 SoC platforms due to the unavailability
-of separate patches to use in `emerge`. Do not expect stability or thoroughly
-tested changes; use only at your own risk. For safety purposes, keywords other
-than ~arm64 are removed from packages if present.
+This overlay offers ebuilds for CIX P1 SoC (CD8180) platform due to the
+unavailability of separate patches to use in `emerge`. Do not expect stability
+or thoroughly tested changes; **use only at your own risk**. For safety purposes,
+keywords other than ~arm64 are removed from packages if present.
 
 ## Installation
 
