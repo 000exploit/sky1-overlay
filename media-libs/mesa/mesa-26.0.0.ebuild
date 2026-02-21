@@ -36,11 +36,12 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_COMMIT="${SKY1_COMMIT}"
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/mesa/mesa.git"
 	inherit git-r3
+	KEYWORDS="-* ~arm64"
 else
 	SRC_URI="
 		https://github.com/Sky1-Linux/mesa/archive/${SKY1_COMMIT}.tar.gz -> ${MY_P}.tar.gz
 	"
-	KEYWORDS="~arm64"
+	KEYWORDS="-* ~arm64"
 fi
 
 # This should be {CARGO_CRATE_URIS//.crate/.tar.gz} to correspond to the wrap files,

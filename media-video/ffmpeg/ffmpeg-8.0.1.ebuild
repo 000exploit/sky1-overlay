@@ -14,14 +14,14 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI=(
 		https://github.com/Sky1-Linux/ffmpeg-sky1.git
 	)
-	KEYWORDS="~amd64"
+	KEYWORDS="-* ~amd64"
 else
 	inherit verify-sig
 	SRC_URI="
 		https://github.com/Sky1-Linux/ffmpeg-sky1/archive/${SKY1_COMMIT}.tar.gz -> ffmpeg-${PV}.tar.gz
 	"
 	S=${WORKDIR}/ffmpeg-sky1-${SKY1_COMMIT} # avoid ${P} for ffmpeg-compat
-	KEYWORDS="~amd64"
+	KEYWORDS="-* ~amd64"
 fi
 
 DESCRIPTION="Complete solution to record/convert/stream audio and video, patched for CIX Sky1"
