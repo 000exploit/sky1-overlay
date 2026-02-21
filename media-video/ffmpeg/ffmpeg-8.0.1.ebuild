@@ -18,7 +18,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	inherit verify-sig
 	SRC_URI="
-		https://github.com/Sky1-Linux/ffmpeg-sky1/archive/${SKY1_COMMIT}.zip -> ffmpeg-${PV}.zip
+		https://github.com/Sky1-Linux/ffmpeg-sky1/archive/${SKY1_COMMIT}.tar.gz -> ffmpeg-${PV}.tar.gz
 	"
 	S=${WORKDIR}/ffmpeg-sky1-${SKY1_COMMIT} # avoid ${P} for ffmpeg-compat
 	KEYWORDS="~amd64"

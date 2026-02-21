@@ -38,7 +38,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/Sky1-Linux/mesa/archive/${SKY1_COMMIT}.zip -> ${MY_P}.zip
+		https://github.com/Sky1-Linux/mesa/archive/${SKY1_COMMIT}.tar.gz -> ${MY_P}.tar.gz
 	"
 	KEYWORDS="~arm64"
 fi
@@ -192,7 +192,7 @@ src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 	else
-		unpack ${MY_P}.zip
+		unpack ${MY_P}.tar.gz
 	fi
 
 	# We need this because we cannot tell meson to use DISTDIR yet
