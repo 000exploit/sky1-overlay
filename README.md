@@ -21,6 +21,7 @@ Package | Status
 ---     | ---   
 media-video/ffmpeg-8.0.1 | Works, may not pass `test`
 media-libs/mesa-26.0.0 | Works
+x11-drivers/cix-gpu-kmd-20260221 | Untested
 
 ## Notes
 
@@ -35,6 +36,22 @@ COMMON_FLAGS="-O2 -pipe -march=native -mtune=native --param=aarch64-autovec-pref
 LTO is enabled for (mostly) all packages on my system for testing. Follow
 [LTO](https://wiki.gentoo.org/wiki/LTO) documentation for tuning, otherwise do
 not add `-flto` parameter.
+
+### Graphics
+
+Generally, for Arm Immortalis-G720, there are 2 options available:
+
+- Open-source stack (mesa and panthor/tyr)
+- Proprietary stack (libMali and mali_kbase)
+
+As of now, Mesa and Panfrost are doing a great job and are almost enough, except
+for minor bugs in the `panfrost` OpenGL driver and a slow compiler; they're
+already packaged by Gentoo maintainers. The proprietary stack, which promises to
+work better and faster, isn't available as a complete solution in this overlay
+at the moment, although `mali_kbase` is packaged as `x11-drivers/cix-gpu-kmd`.
+The official kernel-space driver is almost abandoned for kernels newer than 6.12
+and has some quirks to make it buildable, but there's no warranty that it will
+work.
 
 ### GStreamer
 
@@ -52,5 +69,4 @@ Missing packages:
 - [Patched mainline kernel sources](https://github.com/Sky1-Linux/linux)
 - Gentoo kernel with sky1 patches (config check?)
 - [vulkan-wsi-layer](https://github.com/Sky1-Linux/vulkan-wsi-layer) (?)
-- [Mali DKMS driver](https://github.com/Sky1-Linux/cix-gpu-kmd)
 - [User-space Mali driver](https://github.com/Sky1-Linux/sky1-gpu-support) (OpenRC? eselect?)
