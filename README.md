@@ -22,6 +22,7 @@ Package | Status
 media-video/ffmpeg-8.0.1 | Works, may not pass `test`
 media-libs/mesa-26.0.0 | Works
 x11-drivers/cix-gpu-kmd-20260221 | Untested
+x11-drivers/cix-gpu-umd-20260221 | Untested
 
 ## Notes
 
@@ -48,10 +49,10 @@ As of now, Mesa and Panfrost are doing a great job and are almost enough, except
 for minor bugs in the `panfrost` OpenGL driver and a slow compiler; they're
 already packaged by Gentoo maintainers. The proprietary stack, which promises to
 work better and faster, isn't available as a complete solution in this overlay
-at the moment, although `mali_kbase` is packaged as `x11-drivers/cix-gpu-kmd`.
-The official kernel-space driver is almost abandoned for kernels newer than 6.12
-and has some quirks to make it buildable, but there's no warranty that it will
-work.
+at the moment, although `mali_kbase` is packaged as `x11-drivers/cix-gpu-kmd` and
+the user-mode driver is also avaiable as `x11-drivers/cix-gpu-umd`. The official
+kernel-space driver is almost abandoned for kernels newer than 6.12 and has some
+quirks to make it buildable, but there's no warranty that it will work.
 
 ### GStreamer
 
@@ -69,4 +70,4 @@ Missing packages:
 - [Patched mainline kernel sources](https://github.com/Sky1-Linux/linux)
 - Gentoo kernel with sky1 patches (config check?)
 - [vulkan-wsi-layer](https://github.com/Sky1-Linux/vulkan-wsi-layer) (?)
-- [User-space Mali driver](https://github.com/Sky1-Linux/sky1-gpu-support) (OpenRC? eselect?)
+- Adapt [user-space Mali driver](https://github.com/Sky1-Linux/sky1-gpu-support) (OpenRC? eselect?)

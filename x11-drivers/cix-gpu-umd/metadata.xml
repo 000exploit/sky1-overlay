@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>illialoo99@gmail.com</email>
+		<name>000exploit</name>
+	</maintainer>
+	<use>
+		<flag name="wsi">Enable Window System Integration (WSI) for Vulkan</flag>
+	</use>
+</pkgmetadata>
