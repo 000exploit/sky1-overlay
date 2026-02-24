@@ -22,7 +22,7 @@ Package | Status
 media-video/ffmpeg-8.0.1 | Works, may not pass `test`
 media-libs/mesa-26.0.0 | Works
 x11-drivers/cix-gpu-kmd-20260221 | Works, needs firmware on non-standard path
-x11-drivers/cix-gpu-umd-20260221 | Not working, something is missing (VGEM? Wrong path?)
+x11-drivers/cix-gpu-umd-20260224 | Not working, something is missing (VGEM? DRI?)
 
 ## Notes
 
