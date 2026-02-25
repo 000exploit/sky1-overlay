@@ -60,8 +60,13 @@ src_prepare() {
 	einfo "Adding files"
 	mkdir -p etc/ld.so.conf.d
 	echo "${EPREFIX}/opt/cixgpu-pro/lib/aarch64-linux-gnu/" >> etc/ld.so.conf.d/00-cixgpu-pro.conf
+
+	# blacklist everything related, open-source stack is already broken
+	BLACKLIST_MODULES="panfrost panthor tyr"
 	mkdir etc/modprobe.d
-	echo "blacklist panthor" >> etc/modprobe.d/10-mali.conf
+	for module in ${BLACKLIST_MODULES}; do
+		echo "blacklist ${module}" >> etc/modprobe.d/10-mali.conf
+	done
 
 	default
 }
@@ -101,7 +106,7 @@ src_install() {
 pkg_postinst() {
 	einfo "FIXME: Unless sources are patched, you need to place the correct firmware into"
 	einfo "${EPREFIX}/lib/firmware manually. Example for '5th Gen' (v12):"
-	einfo "	cp \${EROOT}/lib/firmware/arm/mali/arch12.8/mali_csffw.bin ${EPREFIX}/lib/firmware/"
+	einfo "	cp ${EROOT}/lib/firmware/arm/mali/arch12.8/mali_csffw.bin ${EPREFIX}/lib/firmware/"
 	ewarn "* * * WARNING * * *"
 	ewarn "This proprietary driver may contain bugs, do not work with your"
 	ewarn "configuration or randomly crash user apps. Do not report driver problems"
