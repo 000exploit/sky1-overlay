@@ -29,10 +29,16 @@ pkg_setup() {
 	local CONFIG_CHECK="
 		DRM
 		~!DRM_PANTHOR
+		~DRM_SKY1
 	"
 
 	local ERROR_DRM_PANTHOR="CONFIG_DRM_PANTHOR: is set, and it may prevent
 	mali_kbase from loading without blacklisting 'panthor' explicitly, e.g. in ${EPREFIX}/etc/modprobe.d/"
+
+	local ERROR_DRM_SKY1="CONFIG_DRM_SKY1: not set and this may prevent
+	GBM from working. mali_kbase doesn't expose any render nodes nor creates
+	compatible user-space interfaces either. Any GEM shim is required to use
+	the proprietary	stack."
 
 	if [[ KV_MAJOR -ge 6 && KV_MINOR -ge 17 ]]; then
 		ewarn "Kernel 6.17 changed the page migration movable_ops API to a"
